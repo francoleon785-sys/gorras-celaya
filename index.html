@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gorras Premium Celaya | Dandy Hats, 31 Hats, Barbas Hats</title>
+<meta name="description" content="Gorras premium exclusivas en Celaya, Gto. Dandy Hats, 31 Hats, Barbas Hats y más. Pide por WhatsApp, aparta tu pieza y recíbela en Zona Centro.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧢</text></svg>">
+<style>
+:root{
+  --bg:#0a0a0f;
+  --bg-alt:#111117;
+  --card:#16161e;
+  --border:#26262f;
+  --text:#f4f4f6;
+  --muted:#9797a3;
+  --blue:#3fa9ff;
+  --blue-dark:#1c6fd1;
+  --gold:#e6c15c;
+  --whatsapp:#25d366;
+  --whatsapp-dark:#1ebc59;
+  --radius:14px;
+  --maxw:1160px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 22px;border-radius:999px;font-weight:700;font-size:.95rem;
+  border:1px solid transparent;cursor:pointer;transition:transform .15s ease, filter .15s ease, background .15s ease;
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;box-shadow:0 8px 24px rgba(63,169,255,.25)}
+.btn-outline{background:transparent;color:var(--text);border-color:var(--border)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.btn-whatsapp{background:var(--whatsapp);color:#08210f}
+.btn-whatsapp:hover{background:var(--whatsapp-dark)}
+.btn-sm{padding:8px 16px;font-size:.85rem}
+.btn-block{width:100%}
+.ico{width:18px;height:18px;fill:currentColor}
+
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,10,15,.85);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{display:flex;align-items:center;gap:24px;padding:14px 20px}
+.logo{font-weight:900;font-size:1.25rem;letter-spacing:.5px}
+.logo span{color:var(--blue)}
+.main-nav{display:flex;gap:22px;margin-left:auto;margin-right:20px}
+.main-nav a{color:var(--muted);font-weight:600;font-size:.92rem;transition:color .15s}
+.main-nav a:hover{color:var(--text)}
+.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer}
+
+.hero{position:relative;padding:90px 0 70px;overflow:hidden}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 0%, rgba(63,169,255,.18), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 100%, rgba(63,169,255,.10), transparent 60%);
+}
+.hero-inner{position:relative;z-index:1;max-width:720px}
+.pill{
+  display:inline-block;background:rgba(63,169,255,.12);color:var(--blue);
+  border:1px solid rgba(63,169,255,.35);padding:6px 14px;border-radius:999px;
+  font-size:.8rem;font-weight:700;margin-bottom:18px;
+}
+.hero h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:900;line-height:1.1;margin-bottom:16px}
+.hero-sub{color:var(--muted);font-size:1.08rem;margin-bottom:28px;max-width:560px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px 22px}
+.hero-tags span{color:var(--muted);font-size:.85rem;font-weight:600}
+
+.trust-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-alt)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:26px 20px}
+.trust-item{display:flex;align-items:center;gap:12px}
+.trust-ico{font-size:1.6rem}
+.trust-item strong{display:block;font-size:.92rem}
+.trust-item small{color:var(--muted);font-size:.78rem}
+
+.brands-strip{padding:50px 0 10px}
+.section-title{font-size:1.6rem;font-weight:900;margin-bottom:18px}
+.section-title span{color:var(--muted);font-weight:500;font-size:1rem}
+.brand-pills{display:flex;gap:12px;flex-wrap:wrap}
+.brand-pill{
+  background:var(--card);border:1px solid var(--border);border-radius:999px;
+  padding:10px 18px;font-weight:700;font-size:.9rem;transition:border-color .15s, color .15s;
+}
+.brand-pill:hover{border-color:var(--blue);color:var(--blue)}
+.brand-pill em{color:var(--gold);font-style:normal;margin-left:6px}
+
+.catalog{padding:20px 0 70px}
+.brand-group{padding:40px 0}
+.brand-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:14px}
+.brand-head h2{font-size:1.5rem;font-weight:900}
+.brand-price{color:var(--muted);font-size:.9rem}
+.brand-price strong{color:var(--gold)}
+
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.product-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease, border-color .18s ease;
+}
+.product-card:hover{transform:translateY(-4px);border-color:rgba(63,169,255,.4)}
+
+.gallery{position:relative;aspect-ratio:4/3;overflow:hidden;background:#000}
+.gallery-track{display:flex;height:100%;transition:transform .35s ease}
+.gallery-slide{
+  min-width:100%;height:100%;display:flex;align-items:flex-end;justify-content:flex-start;
+  padding:14px;position:relative;
+}
+.gallery-slide::before{
+  content:"🧢";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:4rem;opacity:.28;filter:drop-shadow(0 0 12px rgba(0,0,0,.4));
+}
+.slide-tag{
+  position:relative;z-index:1;background:rgba(0,0,0,.55);color:#fff;font-size:.7rem;font-weight:700;
+  padding:4px 10px;border-radius:999px;letter-spacing:.3px;
+}
+.gallery-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;
+  background:rgba(0,0,0,.45);color:#fff;border:none;font-size:1.2rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s;
+}
+.gallery:hover .gallery-arrow{opacity:1}
+.gallery-arrow.prev{left:8px}
+.gallery-arrow.next{right:8px}
+.gallery-dots{position:absolute;bottom:8px;right:10px;display:flex;gap:5px}
+.gallery-dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);transition:background .15s}
+.gallery-dots span.active{background:#fff}
+.badge{
+  position:absolute;top:10px;left:10px;background:rgba(10,10,15,.8);border:1px solid rgba(255,255,255,.15);
+  color:#fff;font-size:.7rem;font-weight:700;padding:5px 10px;border-radius:999px;z-index:2;
+}
+.badge-premium{background:linear-gradient(135deg,var(--gold),#b9902f);border-color:transparent;color:#241a00}
+
+.slide-angel-1{background:linear-gradient(135deg,#0b0f19,#123a63)}
+.slide-angel-2{background:linear-gradient(135deg,#123a63,#1f5f9e)}
+.slide-angel-3{background:linear-gradient(135deg,#0b0f19,#1f5f9e)}
+.slide-angel-4{background:linear-gradient(135deg,#1f5f9e,#3fa9ff)}
+
+.slide-plague-1{background:linear-gradient(135deg,#141417,#3a3a42)}
+.slide-plague-2{background:linear-gradient(135deg,#1c1c20,#4a4a53)}
+.slide-plague-3{background:linear-gradient(135deg,#141417,#4a4a53)}
+.slide-plague-4{background:linear-gradient(135deg,#3a3a42,#6b6b76)}
+
+.slide-electric-1{background:linear-gradient(135deg,#050810,#0d2c52)}
+.slide-electric-2{background:linear-gradient(135deg,#0d2c52,#1a5fa8)}
+.slide-electric-3{background:linear-gradient(135deg,#050810,#1a5fa8)}
+.slide-electric-4{background:linear-gradient(135deg,#1a5fa8,#7cc4ff)}
+
+.slide-stars-1{background:linear-gradient(135deg,#0e0d08,#3a3221)}
+.slide-stars-2{background:linear-gradient(135deg,#181510,#4d4227)}
+.slide-stars-3{background:linear-gradient(135deg,#0e0d08,#4d4227)}
+.slide-stars-4{background:linear-gradient(135deg,#3a3221,var(--gold))}
+
+.product-body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.product-body h3{font-size:1.15rem;font-weight:800}
+.collab{color:var(--muted);font-weight:500;font-size:.85rem}
+.stars{color:var(--muted);font-size:.9rem;letter-spacing:1px}
+.stars small{color:var(--muted);font-size:.75rem;letter-spacing:0;margin-left:4px}
+.desc{color:var(--muted);font-size:.88rem;flex:1}
+.price-row{display:flex;align-items:center;justify-content:space-between}
+.price{font-size:1.3rem;font-weight:900;color:var(--gold)}
+.price small{font-size:.7rem;color:var(--muted);font-weight:600}
+.stock{font-size:.78rem;color:var(--whatsapp);font-weight:700}
+.card-actions{display:flex;gap:10px}
+
+.apartado{background:var(--bg-alt);padding:70px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.apartado-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.apartado-text h2{font-size:1.9rem;font-weight:900;margin-bottom:14px}
+.apartado-text p{color:var(--muted);margin-bottom:20px}
+.apartado-steps li{position:relative;padding-left:30px;margin-bottom:14px;color:var(--text);font-size:.94rem}
+.apartado-steps li::before{
+  content:counter(li);counter-increment:li;position:absolute;left:0;top:0;
+  width:20px;height:20px;border-radius:50%;background:var(--blue);color:#fff;
+  font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;
+}
+.apartado-steps{counter-reset:li}
+
+.apartado-form{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:26px;display:flex;flex-direction:column;gap:14px;
+}
+.apartado-form h3{font-size:1.1rem;font-weight:800;margin-bottom:4px}
+.apartado-form label{display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:var(--muted);font-weight:600}
+.apartado-form input,.apartado-form select,.apartado-form textarea{
+  background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:11px 12px;
+  color:var(--text);font-size:.92rem;font-family:inherit;
+}
+.apartado-form input:focus,.apartado-form select:focus,.apartado-form textarea:focus{outline:none;border-color:var(--blue)}
+.form-note{color:var(--muted);font-size:.75rem;text-align:center}
+
+.reviews{padding:60px 0}
+.reviews-empty{
+  text-align:center;background:var(--card);border:1px dashed var(--border);border-radius:var(--radius);
+  padding:40px 20px;max-width:520px;margin:0 auto;
+}
+.reviews-stars{color:var(--muted);font-size:1.6rem;letter-spacing:4px;margin-bottom:10px}
+.reviews-empty p{color:var(--muted);margin-bottom:18px}
+
+.location{padding:20px 0 70px}
+.location-card{
+  background:linear-gradient(135deg,var(--card),var(--bg-alt));border:1px solid var(--border);
+  border-radius:var(--radius);padding:40px;max-width:640px;
+}
+.location-card h2{font-size:1.7rem;font-weight:900;margin-bottom:14px}
+.location-card p{color:var(--muted);margin-bottom:20px}
+.location-list{margin-bottom:24px}
+.location-list li{margin-bottom:10px;font-size:.94rem}
+.location-list a{color:var(--blue);font-weight:700}
+
+.site-footer{border-top:1px solid var(--border);padding:36px 0;background:var(--bg-alt)}
+.footer-inner{text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
+.footer-contact a{color:var(--blue);font-weight:700}
+.footer-copy{color:var(--muted);font-size:.8rem;margin-top:10px}
+
+.whatsapp-float{
+  position:fixed;bottom:22px;right:22px;width:56px;height:56px;border-radius:50%;
+  background:var(--whatsapp);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(37,211,102,.4);z-index:60;transition:transform .15s ease;
+}
+.whatsapp-float:hover{transform:scale(1.08)}
+.whatsapp-float svg{width:28px;height:28px;fill:#08210f}
+
+@media (max-width:900px){
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
+  .apartado-inner{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .main-nav{
+    position:fixed;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);
+    flex-direction:column;padding:18px 20px;gap:16px;transform:translateY(-130%);
+    transition:transform .2s ease;z-index:40;
+  }
+  .main-nav.open{transform:translateY(0)}
+  .nav-toggle{display:block;margin-left:auto}
+  .header-inner{flex-wrap:wrap}
+  .hero{padding:60px 0 50px}
+  .location-card{padding:26px}
+}
+@media (max-width:480px){
+  .trust-grid{grid-template-columns:1fr}
+  .card-actions{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="logo">GORRAS<span>CELAYA</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#marcas">Marcas</a>
+      <a href="#apartado">Apartado</a>
+      <a href="#reseñas">Reseñas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener"
+       href="https://wa.me/524611158645?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20gorras%20%F0%9F%A7%A2">
+      <svg viewBox="0 0 32 32" class="ico"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.902 6.474L4 29l7.72-1.862A11.93 11.93 0 0 0 16.001 27C22.629 27 28 21.627 28 15S22.629 3 16.001 3zm0 21.6c-1.99 0-3.85-.55-5.44-1.51l-.39-.23-4.58 1.104 1.13-4.47-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.845 4.756-10.6 10.601-10.6S26.6 9.155 26.6 15 21.845 24.6 16.001 24.6zm5.79-7.94c-.317-.159-1.874-.925-2.164-1.03-.29-.106-.502-.159-.713.159-.21.317-.82 1.03-1.005 1.24-.185.212-.37.238-.687.08-.317-.16-1.338-.494-2.548-1.575-.942-.84-1.578-1.878-1.763-2.195-.185-.317-.02-.489.14-.647.144-.143.317-.37.475-.556.159-.185.212-.317.317-.529.106-.212.053-.397-.026-.556-.08-.159-.713-1.72-.977-2.354-.257-.617-.518-.534-.713-.544l-.607-.011c-.212 0-.556.08-.847.397-.29.317-1.11 1.084-1.11 2.645 0 1.56 1.137 3.068 1.296 3.28.159.212 2.238 3.418 5.424 4.793.758.327 1.35.523 1.811.669.761.242 1.453.208 2.001.126.61-.091 1.874-.766 2.138-1.507.264-.74.264-1.375.185-1.507-.08-.132-.291-.212-.608-.37z"/></svg>
+      WhatsApp
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-inner">
+    <span class="pill">📍 Exclusivo en Celaya, Gto</span>
+    <h1>Gorras premium, hechas para destacar.</h1>
+    <p class="hero-sub">Dandy Hats, 31 Hats, Barbas Hats y más marcas de colección — piezas originales, bordados y detalles que no encuentras en cualquier lado.</p>
+    <div class="hero-cta">
+      <a href="#catalogo" class="btn btn-primary">Ver catálogo</a>
+      <a href="https://wa.me/524611158645?text=Hola%2C%20quiero%20ver%20las%20gorras%20disponibles"
+         target="_blank" rel="noopener" class="btn btn-whatsapp">Pedir por WhatsApp</a>
+    </div>
+    <div class="hero-tags">
+      <span>🚚 Entrega en persona · Zona Centro</span>
+      <span>🔖 Apartado disponible</span>
+      <span>✅ Piezas originales</span>
+    </div>
+  </div>
+</section>
+
+<section class="trust-bar">
+  <div class="container trust-grid">
+    <div class="trust-item"><span class="trust-ico">📍</span><div><strong>Solo Celaya, Gto</strong><small>Entregas en persona en Zona Centro</small></div></div>
+    <div class="trust-item"><span class="trust-ico">🔖</span><div><strong>Aparta tu gorra</strong><small>Asegura tu pieza antes de que se agote</small></div></div>
+    <div class="trust-item"><span class="trust-ico">🧢</span><div><strong>Marcas premium</strong><small>Dandy Hats, 31 Hats, Barbas Hats y más</small></div></div>
+    <div class="trust-item"><span class="trust-ico">💬</span><div><strong>Atención directa</strong><small>Pedidos y dudas por WhatsApp</small></div></div>
+  </div>
+</section>
+
+<section class="brands-strip" id="marcas">
+  <div class="container">
+    <h2 class="section-title">Marcas <span>· ordenadas de menor a mayor precio</span></h2>
+    <div class="brand-pills">
+      <a href="#brand-dandy" class="brand-pill">Dandy Hats <em>$750</em></a>
+      <a href="#brand-31hats" class="brand-pill">31 Hats <em>$750</em></a>
+      <a href="#brand-barbas" class="brand-pill">Barbas Hats <em>$800</em></a>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="catalogo">
+  <div class="container">
+
+    <div class="brand-group" id="brand-dandy">
+      <div class="brand-head">
+        <h2>Dandy Hats</h2>
+        <span class="brand-price">Piezas desde <strong>$750 MXN</strong></span>
+      </div>
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="gallery" data-gallery>
+            <div class="gallery-track">
+              <div class="gallery-slide slide-angel-1"><span class="slide-tag">Frente</span></div>
+              <div class="gallery-slide slide-angel-2"><span class="slide-tag">Lateral</span></div>
+              <div class="gallery-slide slide-angel-3"><span class="slide-tag">Trasera</span></div>
+              <div class="gallery-slide slide-angel-4"><span class="slide-tag">Detalle bordado</span></div>
+            </div>
+            <button class="gallery-arrow prev" aria-label="Anterior">‹</button>
+            <button class="gallery-arrow next" aria-label="Siguiente">›</button>
+            <div class="gallery-dots"></div>
+            <span class="badge">Dandy Hats</span>
+          </div>
+          <div class="product-body">
+            <h3>Ángel Azul</h3>
+            <div class="stars" title="Sin reseñas todavía">☆☆☆☆☆ <small>(0 reseñas — sé el primero)</small></div>
+            <p class="desc">Gorra negra con bordado 3D "LA" en blanco y grafiti azul degradado tipo splash en visera y laterales. Detalles con brillo tipo diamante. Ajuste trasero, snapback.</p>
+            <div class="price-row">
+              <span class="price">$750 <small>MXN</small></span>
+              <span class="stock">Disponible</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-outline btn-block" onclick="openApartado('Dandy Hats — Ángel Azul', 750)">Apartar</button>
+              <a class="btn btn-whatsapp btn-block" target="_blank" rel="noopener"
+                 href="https://wa.me/524611158645?text=Hola%2C%20me%20interesa%20la%20gorra%20Dandy%20Hats%20%E2%80%94%20%C3%81ngel%20Azul%20(%24750)">Pedir</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="gallery" data-gallery>
+            <div class="gallery-track">
+              <div class="gallery-slide slide-plague-1"><span class="slide-tag">Frente</span></div>
+              <div class="gallery-slide slide-plague-2"><span class="slide-tag">Lateral</span></div>
+              <div class="gallery-slide slide-plague-3"><span class="slide-tag">Trasera</span></div>
+              <div class="gallery-slide slide-plague-4"><span class="slide-tag">Detalle bordado</span></div>
+            </div>
+            <button class="gallery-arrow prev" aria-label="Anterior">‹</button>
+            <button class="gallery-arrow next" aria-label="Siguiente">›</button>
+            <div class="gallery-dots"></div>
+            <span class="badge">Dandy Hats</span>
+          </div>
+          <div class="product-body">
+            <h3>Plague</h3>
+            <div class="stars" title="Sin reseñas todavía">☆☆☆☆☆ <small>(0 reseñas — sé el primero)</small></div>
+            <p class="desc">Gorra gris oscuro con bordado gótico "Dandy" en gris plata, textura suede en visera y detalles rústicos en los laterales. Un clásico de colección.</p>
+            <div class="price-row">
+              <span class="price">$750 <small>MXN</small></span>
+              <span class="stock">Disponible</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-outline btn-block" onclick="openApartado('Dandy Hats — Plague', 750)">Apartar</button>
+              <a class="btn btn-whatsapp btn-block" target="_blank" rel="noopener"
+                 href="https://wa.me/524611158645?text=Hola%2C%20me%20interesa%20la%20gorra%20Dandy%20Hats%20%E2%80%94%20Plague%20(%24750)">Pedir</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="brand-group" id="brand-31hats">
+      <div class="brand-head">
+        <h2>31 Hats</h2>
+        <span class="brand-price">Piezas desde <strong>$750 MXN</strong></span>
+      </div>
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="gallery" data-gallery>
+            <div class="gallery-track">
+              <div class="gallery-slide slide-electric-1"><span class="slide-tag">Frente</span></div>
+              <div class="gallery-slide slide-electric-2"><span class="slide-tag">Lateral</span></div>
+              <div class="gallery-slide slide-electric-3"><span class="slide-tag">Trasera</span></div>
+              <div class="gallery-slide slide-electric-4"><span class="slide-tag">Detalle bordado</span></div>
+            </div>
+            <button class="gallery-arrow prev" aria-label="Anterior">‹</button>
+            <button class="gallery-arrow next" aria-label="Siguiente">›</button>
+            <div class="gallery-dots"></div>
+            <span class="badge">31 Hats</span>
+          </div>
+          <div class="product-body">
+            <h3>Electric</h3>
+            <div class="stars" title="Sin reseñas todavía">☆☆☆☆☆ <small>(0 reseñas — sé el primero)</small></div>
+            <p class="desc">Gorra negra con bordado "LA" en blanco y rayos eléctricos azul cielo recorriendo visera y laterales. Diseño llamativo, ideal para destacar en la calle.</p>
+            <div class="price-row">
+              <span class="price">$750 <small>MXN</small></span>
+              <span class="stock">Disponible</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-outline btn-block" onclick="openApartado('31 Hats — Electric', 750)">Apartar</button>
+              <a class="btn btn-whatsapp btn-block" target="_blank" rel="noopener"
+                 href="https://wa.me/524611158645?text=Hola%2C%20me%20interesa%20la%20gorra%2031%20Hats%20%E2%80%94%20Electric%20(%24750)">Pedir</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="brand-group" id="brand-barbas">
+      <div class="brand-head">
+        <h2>Barbas Hats</h2>
+        <span class="brand-price">Piezas desde <strong>$800 MXN</strong></span>
+      </div>
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="gallery" data-gallery>
+            <div class="gallery-track">
+              <div class="gallery-slide slide-stars-1"><span class="slide-tag">Frente</span></div>
+              <div class="gallery-slide slide-stars-2"><span class="slide-tag">Lateral</span></div>
+              <div class="gallery-slide slide-stars-3"><span class="slide-tag">Trasera</span></div>
+              <div class="gallery-slide slide-stars-4"><span class="slide-tag">Detalle estrellas</span></div>
+            </div>
+            <button class="gallery-arrow prev" aria-label="Anterior">‹</button>
+            <button class="gallery-arrow next" aria-label="Siguiente">›</button>
+            <div class="gallery-dots"></div>
+            <span class="badge badge-premium">Barbas Hats</span>
+          </div>
+          <div class="product-body">
+            <h3>Three Stars <span class="collab">x CT</span></h3>
+            <div class="stars" title="Sin reseñas todavía">☆☆☆☆☆ <small>(0 reseñas — sé el primero)</small></div>
+            <p class="desc">Gorra negra con textura de piel grabada y tres estrellas metálicas con incrustaciones tipo diamante en la copa. Edición especial, la pieza más exclusiva del catálogo.</p>
+            <div class="price-row">
+              <span class="price">$800 <small>MXN</small></span>
+              <span class="stock">Edición limitada</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-outline btn-block" onclick="openApartado('Barbas Hats x CT — Three Stars', 800)">Apartar</button>
+              <a class="btn btn-whatsapp btn-block" target="_blank" rel="noopener"
+                 href="https://wa.me/524611158645?text=Hola%2C%20me%20interesa%20la%20gorra%20Barbas%20Hats%20x%20CT%20%E2%80%94%20Three%20Stars%20(%24800)">Pedir</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="apartado" id="apartado">
+  <div class="container apartado-inner">
+    <div class="apartado-text">
+      <h2>Aparta tu gorra</h2>
+      <p>¿Ya elegiste tu pieza? Aparta tu gorra y te la guardamos hasta que puedas recogerla. Así te aseguras de no quedarte sin ella.</p>
+      <ol class="apartado-steps">
+        <li>Llena el formulario o escríbenos por WhatsApp con el modelo que quieres.</li>
+        <li>Confirmamos disponibilidad y acordamos el anticipo para apartarla.</li>
+        <li>Coordinamos día y hora de entrega en persona en Zona Centro, Celaya.</li>
+      </ol>
+    </div>
+    <form class="apartado-form" id="apartadoForm">
+      <h3>Formulario de apartado</h3>
+      <label>Nombre
+        <input type="text" id="apName" placeholder="Tu nombre" required>
+      </label>
+      <label>Gorra que te interesa
+        <select id="apProduct" required>
+          <option value="" disabled selected>Selecciona una gorra</option>
+          <option value="Dandy Hats — Ángel Azul ($750)">Dandy Hats — Ángel Azul ($750)</option>
+          <option value="Dandy Hats — Plague ($750)">Dandy Hats — Plague ($750)</option>
+          <option value="31 Hats — Electric ($750)">31 Hats — Electric ($750)</option>
+          <option value="Barbas Hats x CT — Three Stars ($800)">Barbas Hats x CT — Three Stars ($800)</option>
+        </select>
+      </label>
+      <label>Teléfono / WhatsApp
+        <input type="tel" id="apPhone" placeholder="Tu número" required>
+      </label>
+      <label>Comentario (opcional)
+        <textarea id="apMsg" rows="2" placeholder="Color, talla, día de entrega..."></textarea>
+      </label>
+      <button type="submit" class="btn btn-whatsapp btn-block">Enviar apartado por WhatsApp</button>
+      <small class="form-note">Se abrirá WhatsApp con tu solicitud lista para enviar. No se te cobra nada hasta confirmar.</small>
+    </form>
+  </div>
+</section>
+
+<section class="reviews" id="reseñas">
+  <div class="container">
+    <h2 class="section-title">Reseñas de clientes</h2>
+    <div class="reviews-empty">
+      <p class="reviews-stars">☆☆☆☆☆</p>
+      <p>Todavía no tenemos reseñas publicadas — ¡sé el primero en compartir tu experiencia!</p>
+      <a class="btn btn-outline" target="_blank" rel="noopener"
+         href="https://wa.me/524611158645?text=Hola%2C%20quiero%20dejar%20una%20rese%C3%B1a%20de%20mi%20compra">
+        Dejar una reseña por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="contacto">
+  <div class="container location-inner">
+    <div class="location-card">
+      <h2>Exclusivo en Celaya, Gto</h2>
+      <p>Todas nuestras entregas son en persona, en <strong>Zona Centro, Celaya</strong>. Coordinamos día y hora directo por WhatsApp para que recibas tu gorra sin complicaciones.</p>
+      <ul class="location-list">
+        <li>📍 Zona Centro, Celaya, Guanajuato</li>
+        <li>💬 WhatsApp: <a href="https://wa.me/524611158645" target="_blank" rel="noopener">+52 461 115 8645</a></li>
+        <li>🕒 Coordinamos horario de entrega contigo</li>
+      </ul>
+      <a class="btn btn-whatsapp" target="_blank" rel="noopener"
+         href="https://wa.me/524611158645?text=Hola%2C%20quiero%20hacer%20un%20pedido">Escríbenos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="logo">GORRAS<span>CELAYA</span></div>
+    <p>Gorras premium — Dandy Hats, 31 Hats, Barbas Hats y más. Exclusivo en Celaya, Gto.</p>
+    <p class="footer-contact">WhatsApp: <a href="https://wa.me/524611158645" target="_blank" rel="noopener">+52 461 115 8645</a></p>
+    <p class="footer-copy">© <span id="year"></span> Gorras Celaya. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<a class="whatsapp-float" target="_blank" rel="noopener"
+   href="https://wa.me/524611158645?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20gorras%20%F0%9F%A7%A2"
+   aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.902 6.474L4 29l7.72-1.862A11.93 11.93 0 0 0 16.001 27C22.629 27 28 21.627 28 15S22.629 3 16.001 3zm0 21.6c-1.99 0-3.85-.55-5.44-1.51l-.39-.23-4.58 1.104 1.13-4.47-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.845 4.756-10.6 10.601-10.6S26.6 9.155 26.6 15 21.845 24.6 16.001 24.6zm5.79-7.94c-.317-.159-1.874-.925-2.164-1.03-.29-.106-.502-.159-.713.159-.21.317-.82 1.03-1.005 1.24-.185.212-.37.238-.687.08-.317-.16-1.338-.494-2.548-1.575-.942-.84-1.578-1.878-1.763-2.195-.185-.317-.02-.489.14-.647.144-.143.317-.37.475-.556.159-.185.212-.317.317-.529.106-.212.053-.397-.026-.556-.08-.159-.713-1.72-.977-2.354-.257-.617-.518-.534-.713-.544l-.607-.011c-.212 0-.556.08-.847.397-.29.317-1.11 1.084-1.11 2.645 0 1.56 1.137 3.068 1.296 3.28.159.212 2.238 3.418 5.424 4.793.758.327 1.35.523 1.811.669.761.242 1.453.208 2.001.126.61-.091 1.874-.766 2.138-1.507.264-.74.264-1.375.185-1.507-.08-.132-.291-.212-.608-.37z"/></svg>
+</a>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+navToggle.addEventListener('click', () => {
+  mainNav.classList.toggle('open');
+});
+mainNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => mainNav.classList.remove('open'));
+});
+
+document.querySelectorAll('[data-gallery]').forEach(gallery => {
+  const track = gallery.querySelector('.gallery-track');
+  const slides = gallery.querySelectorAll('.gallery-slide');
+  const dotsWrap = gallery.querySelector('.gallery-dots');
+  const prevBtn = gallery.querySelector('.gallery-arrow.prev');
+  const nextBtn = gallery.querySelector('.gallery-arrow.next');
+  let index = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = dotsWrap.querySelectorAll('span');
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach(d => d.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+
+  prevBtn.addEventListener('click', () => goTo(index - 1));
+  nextBtn.addEventListener('click', () => goTo(index + 1));
+});
+
+function openApartado(productName, price) {
+  const select = document.getElementById('apProduct');
+  for (const opt of select.options) {
+    if (opt.value.startsWith(productName)) {
+      select.value = opt.value;
+      break;
+    }
+  }
+  document.getElementById('apartado').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('apName').focus({ preventScroll: true });
+}
+
+document.getElementById('apartadoForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const name = document.getElementById('apName').value.trim();
+  const product = document.getElementById('apProduct').value;
+  const phone = document.getElementById('apPhone').value.trim();
+  const msg = document.getElementById('apMsg').value.trim();
+
+  let text = `Hola, quiero apartar una gorra.%0A`;
+  text += `Nombre: ${encodeURIComponent(name)}%0A`;
+  text += `Gorra: ${encodeURIComponent(product)}%0A`;
+  text += `Mi teléfono: ${encodeURIComponent(phone)}`;
+  if (msg) text += `%0AComentario: ${encodeURIComponent(msg)}`;
+
+  window.open(`https://wa.me/524611158645?text=${text}`, '_blank', 'noopener');
+});
+</script>
+</body>
+</html>
