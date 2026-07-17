@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gorras Premium Celaya | Dandy Hats, 31 Hats, Barbas Hats</title>
-<meta name="description" content="Gorras premium exclusivas en Celaya, Gto. Dandy Hats, 31 Hats, Barbas Hats y más. Pide por WhatsApp, aparta tu pieza y recíbela en Zona Centro.">
+<meta name="description" content="Gorras premium exclusivas en Celaya, Gto. Dandy Hats, 31 Hats, Barbas Hats y más. Aparta tu pieza y deja tu reseña directo en la tienda en línea.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧢</text></svg>">
 <style>
 :root{
@@ -118,7 +118,7 @@ ul,ol{list-style:none}
 .product-card:hover{transform:translateY(-4px);border-color:rgba(63,169,255,.4)}
 
 .gallery{position:relative;aspect-ratio:4/3;overflow:hidden;background:#000}
-.gallery-track{display:flex;height:100%;transition:transform .35s ease}
+.gallery-track{display:flex;height:100%;transition:transform .6s cubic-bezier(.22,.9,.32,1);will-change:transform}
 .gallery-slide{
   min-width:100%;height:100%;display:flex;align-items:flex-end;justify-content:flex-start;
   padding:14px;position:relative;
@@ -126,6 +126,12 @@ ul,ol{list-style:none}
 .gallery-slide::before{
   content:"🧢";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   font-size:4rem;opacity:.28;filter:drop-shadow(0 0 12px rgba(0,0,0,.4));
+  transition:opacity .6s ease, transform .6s ease;
+}
+.gallery-slide::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,.45) 100%);
+  pointer-events:none;
 }
 .slide-tag{
   position:relative;z-index:1;background:rgba(0,0,0,.55);color:#fff;font-size:.7rem;font-weight:700;
@@ -134,14 +140,16 @@ ul,ol{list-style:none}
 .gallery-arrow{
   position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;
   background:rgba(0,0,0,.45);color:#fff;border:none;font-size:1.2rem;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s;
+  display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s ease, background .2s ease;
+  z-index:2;
 }
 .gallery:hover .gallery-arrow{opacity:1}
+.gallery-arrow:hover{background:rgba(0,0,0,.75)}
 .gallery-arrow.prev{left:8px}
 .gallery-arrow.next{right:8px}
-.gallery-dots{position:absolute;bottom:8px;right:10px;display:flex;gap:5px}
-.gallery-dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);transition:background .15s}
-.gallery-dots span.active{background:#fff}
+.gallery-dots{position:absolute;bottom:8px;right:10px;display:flex;gap:5px;z-index:2}
+.gallery-dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);transition:background .2s ease, transform .2s ease;cursor:pointer}
+.gallery-dots span.active{background:#fff;transform:scale(1.3)}
 .badge{
   position:absolute;top:10px;left:10px;background:rgba(10,10,15,.8);border:1px solid rgba(255,255,255,.15);
   color:#fff;font-size:.7rem;font-weight:700;padding:5px 10px;border-radius:999px;z-index:2;
@@ -192,6 +200,7 @@ ul,ol{list-style:none}
 }
 .apartado-steps{counter-reset:li}
 
+.apartado-panel{position:relative}
 .apartado-form{
   background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
   padding:26px;display:flex;flex-direction:column;gap:14px;
@@ -205,13 +214,54 @@ ul,ol{list-style:none}
 .apartado-form input:focus,.apartado-form select:focus,.apartado-form textarea:focus{outline:none;border-color:var(--blue)}
 .form-note{color:var(--muted);font-size:.75rem;text-align:center}
 
-.reviews{padding:60px 0}
-.reviews-empty{
-  text-align:center;background:var(--card);border:1px dashed var(--border);border-radius:var(--radius);
-  padding:40px 20px;max-width:520px;margin:0 auto;
+.apartado-confirm{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:36px 26px;text-align:center;
 }
-.reviews-stars{color:var(--muted);font-size:1.6rem;letter-spacing:4px;margin-bottom:10px}
-.reviews-empty p{color:var(--muted);margin-bottom:18px}
+.confirm-icon{
+  width:52px;height:52px;border-radius:50%;background:var(--whatsapp);color:#08210f;
+  font-size:1.6rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;
+}
+.apartado-confirm h3{font-size:1.3rem;font-weight:900;margin-bottom:10px}
+.apartado-confirm .folio{color:var(--gold);font-weight:800}
+.apartado-confirm p{color:var(--muted);font-size:.92rem;margin-bottom:6px}
+.confirm-note{margin-top:10px;margin-bottom:20px !important}
+[hidden]{display:none !important}
+
+.reviews{padding:60px 0}
+.reviews-summary{display:flex;align-items:center;gap:14px;margin-bottom:30px;flex-wrap:wrap}
+.reviews-avg{color:var(--gold);font-size:1.4rem;letter-spacing:2px}
+.reviews-count{color:var(--muted);font-size:.9rem;font-weight:600}
+.reviews-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:start}
+.review-form{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;display:flex;flex-direction:column;gap:14px;
+}
+.review-form h3{font-size:1.05rem;font-weight:800}
+.review-form label{display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:var(--muted);font-weight:600}
+.review-form input,.review-form textarea{
+  background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:11px 12px;
+  color:var(--text);font-size:.92rem;font-family:inherit;resize:vertical;
+}
+.review-form input:focus,.review-form textarea:focus{outline:none;border-color:var(--blue)}
+.star-input{display:flex;gap:4px}
+.star-input button{
+  background:none;border:none;font-size:1.7rem;line-height:1;color:var(--border);cursor:pointer;
+  transition:color .15s ease, transform .15s ease;padding:0;
+}
+.star-input button:hover{transform:scale(1.15)}
+.star-input button.active{color:var(--gold)}
+.review-list{display:flex;flex-direction:column;gap:14px;max-height:520px;overflow-y:auto;padding-right:4px}
+.reviews-empty-msg{
+  color:var(--muted);text-align:center;background:var(--card);border:1px dashed var(--border);
+  border-radius:var(--radius);padding:30px 16px;
+}
+.review-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.review-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.review-head strong{font-size:.95rem}
+.review-stars{color:var(--gold);font-size:.9rem;letter-spacing:1px}
+.review-text{color:var(--text);font-size:.88rem;margin-bottom:8px}
+.review-date{color:var(--muted);font-size:.72rem}
 
 .location{padding:20px 0 70px}
 .location-card{
@@ -240,6 +290,7 @@ ul,ol{list-style:none}
 @media (max-width:900px){
   .trust-grid{grid-template-columns:repeat(2,1fr)}
   .apartado-inner{grid-template-columns:1fr}
+  .reviews-layout{grid-template-columns:1fr}
 }
 @media (max-width:720px){
   .main-nav{
@@ -268,7 +319,7 @@ ul,ol{list-style:none}
       <a href="#catalogo">Catálogo</a>
       <a href="#marcas">Marcas</a>
       <a href="#apartado">Apartado</a>
-      <a href="#reseñas">Reseñas</a>
+      <a href="#resenas">Reseñas</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <a class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener"
@@ -285,7 +336,7 @@ ul,ol{list-style:none}
   <div class="container hero-inner">
     <span class="pill">📍 Exclusivo en Celaya, Gto</span>
     <h1>Gorras premium, hechas para destacar.</h1>
-    <p class="hero-sub">Dandy Hats, 31 Hats, Barbas Hats y más marcas de colección — piezas originales, bordados y detalles que no encuentras en cualquier lado.</p>
+    <p class="hero-sub">Dandy Hats, 31 Hats, Barbas Hats y más marcas de colección — piezas originales, bordados y detalles que no encuentras en cualquier lado. Aparta tu gorra y deja tu reseña sin salir de la tienda.</p>
     <div class="hero-cta">
       <a href="#catalogo" class="btn btn-primary">Ver catálogo</a>
       <a href="https://wa.me/524611158645?text=Hola%2C%20quiero%20ver%20las%20gorras%20disponibles"
@@ -293,7 +344,7 @@ ul,ol{list-style:none}
     </div>
     <div class="hero-tags">
       <span>🚚 Entrega en persona · Zona Centro</span>
-      <span>🔖 Apartado disponible</span>
+      <span>🔖 Apartado en línea</span>
       <span>✅ Piezas originales</span>
     </div>
   </div>
@@ -302,9 +353,9 @@ ul,ol{list-style:none}
 <section class="trust-bar">
   <div class="container trust-grid">
     <div class="trust-item"><span class="trust-ico">📍</span><div><strong>Solo Celaya, Gto</strong><small>Entregas en persona en Zona Centro</small></div></div>
-    <div class="trust-item"><span class="trust-ico">🔖</span><div><strong>Aparta tu gorra</strong><small>Asegura tu pieza antes de que se agote</small></div></div>
+    <div class="trust-item"><span class="trust-ico">🔖</span><div><strong>Aparta en línea</strong><small>Directo desde la tienda, sin salir de la página</small></div></div>
     <div class="trust-item"><span class="trust-ico">🧢</span><div><strong>Marcas premium</strong><small>Dandy Hats, 31 Hats, Barbas Hats y más</small></div></div>
-    <div class="trust-item"><span class="trust-ico">💬</span><div><strong>Atención directa</strong><small>Pedidos y dudas por WhatsApp</small></div></div>
+    <div class="trust-item"><span class="trust-ico">⭐</span><div><strong>Reseñas reales</strong><small>Escritas por clientes, aquí mismo</small></div></div>
   </div>
 </section>
 
@@ -344,7 +395,7 @@ ul,ol{list-style:none}
           </div>
           <div class="product-body">
             <h3>Ángel Azul</h3>
-            <div class="stars" title="Sin reseñas todavía">☆☆☆☆☆ <small>(0 reseñas — sé el primero)</small></div>
+            <div class="stars" title="Ver reseñas">☆☆☆☆☆ <small>(ver reseñas abajo)</small></div>
             <p class="desc">Gorra negra con bordado 3D "LA" en blanco y grafiti azul degradado tipo splash en visera y laterales. Detalles con brillo tipo diamante. Ajuste trasero, snapback.</p>
             <div class="price-row">
               <span class="price">$750 <small>MXN</small></span>
@@ -373,7 +424,7 @@ ul,ol{list-style:none}
           </div>
           <div class="product-body">
             <h3>Plague</h3>
-            <div class="stars" title="Sin reseñas todavía">☆☆☆☆☆ <small>(0 reseñas — sé el primero)</small></div>
+            <div class="stars" title="Ver reseñas">☆☆☆☆☆ <small>(ver reseñas abajo)</small></div>
             <p class="desc">Gorra gris oscuro con bordado gótico "Dandy" en gris plata, textura suede en visera y detalles rústicos en los laterales. Un clásico de colección.</p>
             <div class="price-row">
               <span class="price">$750 <small>MXN</small></span>
@@ -412,7 +463,7 @@ ul,ol{list-style:none}
           </div>
           <div class="product-body">
             <h3>Electric</h3>
-            <div class="stars" title="Sin reseñas todavía">☆☆☆☆☆ <small>(0 reseñas — sé el primero)</small></div>
+            <div class="stars" title="Ver reseñas">☆☆☆☆☆ <small>(ver reseñas abajo)</small></div>
             <p class="desc">Gorra negra con bordado "LA" en blanco y rayos eléctricos azul cielo recorriendo visera y laterales. Diseño llamativo, ideal para destacar en la calle.</p>
             <div class="price-row">
               <span class="price">$750 <small>MXN</small></span>
@@ -451,7 +502,7 @@ ul,ol{list-style:none}
           </div>
           <div class="product-body">
             <h3>Three Stars <span class="collab">x CT</span></h3>
-            <div class="stars" title="Sin reseñas todavía">☆☆☆☆☆ <small>(0 reseñas — sé el primero)</small></div>
+            <div class="stars" title="Ver reseñas">☆☆☆☆☆ <small>(ver reseñas abajo)</small></div>
             <p class="desc">Gorra negra con textura de piel grabada y tres estrellas metálicas con incrustaciones tipo diamante en la copa. Edición especial, la pieza más exclusiva del catálogo.</p>
             <div class="price-row">
               <span class="price">$800 <small>MXN</small></span>
@@ -474,50 +525,80 @@ ul,ol{list-style:none}
 <section class="apartado" id="apartado">
   <div class="container apartado-inner">
     <div class="apartado-text">
-      <h2>Aparta tu gorra</h2>
-      <p>¿Ya elegiste tu pieza? Aparta tu gorra y te la guardamos hasta que puedas recogerla. Así te aseguras de no quedarte sin ella.</p>
+      <h2>Aparta tu gorra en línea</h2>
+      <p>Llena el formulario aquí mismo, sin salir de la página. Tu apartado queda registrado al instante y nosotros te contactamos para coordinar el anticipo y la entrega.</p>
       <ol class="apartado-steps">
-        <li>Llena el formulario o escríbenos por WhatsApp con el modelo que quieres.</li>
-        <li>Confirmamos disponibilidad y acordamos el anticipo para apartarla.</li>
-        <li>Coordinamos día y hora de entrega en persona en Zona Centro, Celaya.</li>
+        <li>Llena el formulario con el modelo que quieres.</li>
+        <li>Recibes tu confirmación y número de folio al instante, aquí en la tienda.</li>
+        <li>Te contactamos para coordinar el anticipo y la entrega en persona en Zona Centro, Celaya.</li>
       </ol>
     </div>
-    <form class="apartado-form" id="apartadoForm">
-      <h3>Formulario de apartado</h3>
-      <label>Nombre
-        <input type="text" id="apName" placeholder="Tu nombre" required>
-      </label>
-      <label>Gorra que te interesa
-        <select id="apProduct" required>
-          <option value="" disabled selected>Selecciona una gorra</option>
-          <option value="Dandy Hats — Ángel Azul ($750)">Dandy Hats — Ángel Azul ($750)</option>
-          <option value="Dandy Hats — Plague ($750)">Dandy Hats — Plague ($750)</option>
-          <option value="31 Hats — Electric ($750)">31 Hats — Electric ($750)</option>
-          <option value="Barbas Hats x CT — Three Stars ($800)">Barbas Hats x CT — Three Stars ($800)</option>
-        </select>
-      </label>
-      <label>Teléfono / WhatsApp
-        <input type="tel" id="apPhone" placeholder="Tu número" required>
-      </label>
-      <label>Comentario (opcional)
-        <textarea id="apMsg" rows="2" placeholder="Color, talla, día de entrega..."></textarea>
-      </label>
-      <button type="submit" class="btn btn-whatsapp btn-block">Enviar apartado por WhatsApp</button>
-      <small class="form-note">Se abrirá WhatsApp con tu solicitud lista para enviar. No se te cobra nada hasta confirmar.</small>
-    </form>
+    <div class="apartado-panel">
+      <form class="apartado-form" id="apartadoForm">
+        <h3>Formulario de apartado</h3>
+        <label>Nombre
+          <input type="text" id="apName" placeholder="Tu nombre" required>
+        </label>
+        <label>Gorra que te interesa
+          <select id="apProduct" required>
+            <option value="" disabled selected>Selecciona una gorra</option>
+            <option value="Dandy Hats — Ángel Azul ($750)">Dandy Hats — Ángel Azul ($750)</option>
+            <option value="Dandy Hats — Plague ($750)">Dandy Hats — Plague ($750)</option>
+            <option value="31 Hats — Electric ($750)">31 Hats — Electric ($750)</option>
+            <option value="Barbas Hats x CT — Three Stars ($800)">Barbas Hats x CT — Three Stars ($800)</option>
+          </select>
+        </label>
+        <label>Teléfono / WhatsApp
+          <input type="tel" id="apPhone" placeholder="Tu número" required>
+        </label>
+        <label>Comentario (opcional)
+          <textarea id="apMsg" rows="2" placeholder="Color, talla, día de entrega..."></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Confirmar apartado</button>
+        <small class="form-note">Tu apartado se guarda al instante en la tienda y te avisamos por WhatsApp para coordinar todo. No se te cobra nada hasta confirmar el anticipo.</small>
+      </form>
+      <div class="apartado-confirm" id="apartadoConfirm" hidden>
+        <div class="confirm-icon">✓</div>
+        <h3>¡Apartado confirmado!</h3>
+        <p>Folio <span class="folio" id="apFolio">#0000</span></p>
+        <p id="apSummary"></p>
+        <p class="confirm-note">Nos pondremos en contacto por WhatsApp para coordinar el anticipo y la entrega en persona en Zona Centro, Celaya.</p>
+        <button class="btn btn-outline" id="apNewBtn" type="button">Hacer otro apartado</button>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="reviews" id="reseñas">
+<section class="reviews" id="resenas">
   <div class="container">
     <h2 class="section-title">Reseñas de clientes</h2>
-    <div class="reviews-empty">
-      <p class="reviews-stars">☆☆☆☆☆</p>
-      <p>Todavía no tenemos reseñas publicadas — ¡sé el primero en compartir tu experiencia!</p>
-      <a class="btn btn-outline" target="_blank" rel="noopener"
-         href="https://wa.me/524611158645?text=Hola%2C%20quiero%20dejar%20una%20rese%C3%B1a%20de%20mi%20compra">
-        Dejar una reseña por WhatsApp
-      </a>
+    <div class="reviews-summary">
+      <span class="reviews-avg" id="reviewsAvg">☆☆☆☆☆</span>
+      <span class="reviews-count" id="reviewsCount">Sin reseñas todavía</span>
+    </div>
+    <div class="reviews-layout">
+      <form class="review-form" id="reviewForm">
+        <h3>Deja tu reseña</h3>
+        <label>Tu nombre
+          <input type="text" id="revName" placeholder="Tu nombre" required>
+        </label>
+        <label>Calificación
+          <div class="star-input" id="starInput" data-rating="0">
+            <button type="button" data-star="1" aria-label="1 estrella">★</button>
+            <button type="button" data-star="2" aria-label="2 estrellas">★</button>
+            <button type="button" data-star="3" aria-label="3 estrellas">★</button>
+            <button type="button" data-star="4" aria-label="4 estrellas">★</button>
+            <button type="button" data-star="5" aria-label="5 estrellas">★</button>
+          </div>
+        </label>
+        <label>Tu comentario
+          <textarea id="revText" rows="3" placeholder="Cuéntanos cómo te fue con tu gorra..." required></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Publicar reseña</button>
+      </form>
+      <div class="review-list" id="reviewList">
+        <p class="reviews-empty-msg" id="reviewsEmptyMsg">Todavía no hay reseñas — ¡sé el primero en escribir la tuya!</p>
+      </div>
     </div>
   </div>
 </section>
@@ -526,7 +607,7 @@ ul,ol{list-style:none}
   <div class="container location-inner">
     <div class="location-card">
       <h2>Exclusivo en Celaya, Gto</h2>
-      <p>Todas nuestras entregas son en persona, en <strong>Zona Centro, Celaya</strong>. Coordinamos día y hora directo por WhatsApp para que recibas tu gorra sin complicaciones.</p>
+      <p>Todas nuestras entregas son en persona, en <strong>Zona Centro, Celaya</strong>. Aparta en línea aquí mismo y coordinamos día y hora por WhatsApp para que recibas tu gorra sin complicaciones.</p>
       <ul class="location-list">
         <li>📍 Zona Centro, Celaya, Guanajuato</li>
         <li>💬 WhatsApp: <a href="https://wa.me/524611158645" target="_blank" rel="noopener">+52 461 115 8645</a></li>
@@ -565,6 +646,7 @@ mainNav.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => mainNav.classList.remove('open'));
 });
 
+/* ---------- Galerías: transición suave + autoplay + swipe ---------- */
 document.querySelectorAll('[data-gallery]').forEach(gallery => {
   const track = gallery.querySelector('.gallery-track');
   const slides = gallery.querySelectorAll('.gallery-slide');
@@ -572,11 +654,12 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
   const prevBtn = gallery.querySelector('.gallery-arrow.prev');
   const nextBtn = gallery.querySelector('.gallery-arrow.next');
   let index = 0;
+  let autoplayTimer = null;
 
   slides.forEach((_, i) => {
     const dot = document.createElement('span');
     if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goTo(i));
+    dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
     dotsWrap.appendChild(dot);
   });
   const dots = dotsWrap.querySelectorAll('span');
@@ -587,11 +670,28 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
     dots.forEach(d => d.classList.remove('active'));
     dots[index].classList.add('active');
   }
+  function next() { goTo(index + 1); }
+  function startAutoplay() { autoplayTimer = setInterval(next, 3200); }
+  function resetAutoplay() { clearInterval(autoplayTimer); startAutoplay(); }
 
-  prevBtn.addEventListener('click', () => goTo(index - 1));
-  nextBtn.addEventListener('click', () => goTo(index + 1));
+  prevBtn.addEventListener('click', () => { goTo(index - 1); resetAutoplay(); });
+  nextBtn.addEventListener('click', () => { goTo(index + 1); resetAutoplay(); });
+
+  gallery.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+  gallery.addEventListener('mouseleave', () => startAutoplay());
+
+  let touchStartX = 0;
+  gallery.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; clearInterval(autoplayTimer); }, { passive: true });
+  gallery.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) { dx > 0 ? goTo(index - 1) : goTo(index + 1); }
+    startAutoplay();
+  }, { passive: true });
+
+  startAutoplay();
 });
 
+/* ---------- Apartado en línea (queda registrado en la tienda) ---------- */
 function openApartado(productName, price) {
   const select = document.getElementById('apProduct');
   for (const opt of select.options) {
@@ -604,6 +704,8 @@ function openApartado(productName, price) {
   document.getElementById('apName').focus({ preventScroll: true });
 }
 
+const APARTADOS_KEY = 'gc_apartados';
+
 document.getElementById('apartadoForm').addEventListener('submit', function (e) {
   e.preventDefault();
   const name = document.getElementById('apName').value.trim();
@@ -611,14 +713,118 @@ document.getElementById('apartadoForm').addEventListener('submit', function (e) 
   const phone = document.getElementById('apPhone').value.trim();
   const msg = document.getElementById('apMsg').value.trim();
 
-  let text = `Hola, quiero apartar una gorra.%0A`;
+  let list = [];
+  try { list = JSON.parse(localStorage.getItem(APARTADOS_KEY)) || []; } catch (err) { list = []; }
+  const folio = 1000 + list.length + 1;
+  list.push({ folio, name, product, phone, msg, date: new Date().toISOString() });
+  localStorage.setItem(APARTADOS_KEY, JSON.stringify(list));
+
+  document.getElementById('apFolio').textContent = '#' + folio;
+  document.getElementById('apSummary').textContent = `${name} — ${product}`;
+  this.hidden = true;
+  document.getElementById('apartadoConfirm').hidden = false;
+  document.getElementById('apartadoConfirm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  let text = `Hola, quiero apartar una gorra (folio %23${folio}).%0A`;
   text += `Nombre: ${encodeURIComponent(name)}%0A`;
   text += `Gorra: ${encodeURIComponent(product)}%0A`;
   text += `Mi teléfono: ${encodeURIComponent(phone)}`;
   if (msg) text += `%0AComentario: ${encodeURIComponent(msg)}`;
-
   window.open(`https://wa.me/524611158645?text=${text}`, '_blank', 'noopener');
 });
+
+document.getElementById('apNewBtn').addEventListener('click', () => {
+  document.getElementById('apartadoConfirm').hidden = true;
+  const form = document.getElementById('apartadoForm');
+  form.hidden = false;
+  form.reset();
+});
+
+/* ---------- Reseñas en la tienda (sin WhatsApp) ---------- */
+const REVIEWS_KEY = 'gc_reviews';
+
+function loadReviews() {
+  try { return JSON.parse(localStorage.getItem(REVIEWS_KEY)) || []; } catch (err) { return []; }
+}
+function saveReviews(list) { localStorage.setItem(REVIEWS_KEY, JSON.stringify(list)); }
+
+function starString(n) {
+  return '★★★★★☆☆☆☆☆'.slice(5 - n, 10 - n);
+}
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function renderReviews() {
+  const list = loadReviews();
+  const listEl = document.getElementById('reviewList');
+  const emptyMsg = document.getElementById('reviewsEmptyMsg');
+  const avgEl = document.getElementById('reviewsAvg');
+  const countEl = document.getElementById('reviewsCount');
+
+  listEl.querySelectorAll('.review-card').forEach(el => el.remove());
+
+  if (list.length === 0) {
+    emptyMsg.style.display = 'block';
+    avgEl.textContent = '☆☆☆☆☆';
+    countEl.textContent = 'Sin reseñas todavía';
+    return;
+  }
+  emptyMsg.style.display = 'none';
+
+  const avg = list.reduce((s, r) => s + r.rating, 0) / list.length;
+  avgEl.textContent = starString(Math.round(avg));
+  countEl.textContent = `${avg.toFixed(1)} de 5 · ${list.length} reseña${list.length === 1 ? '' : 's'}`;
+
+  list.slice().reverse().forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    card.innerHTML = `
+      <div class="review-head">
+        <strong>${escapeHtml(r.name)}</strong>
+        <span class="review-stars">${starString(r.rating)}</span>
+      </div>
+      <p class="review-text">${escapeHtml(r.text)}</p>
+      <span class="review-date">${escapeHtml(r.date)}</span>
+    `;
+    listEl.appendChild(card);
+  });
+}
+
+const starInput = document.getElementById('starInput');
+starInput.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const val = Number(btn.dataset.star);
+    starInput.dataset.rating = val;
+    starInput.querySelectorAll('button').forEach(b => {
+      b.classList.toggle('active', Number(b.dataset.star) <= val);
+    });
+  });
+});
+
+document.getElementById('reviewForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const name = document.getElementById('revName').value.trim();
+  const text = document.getElementById('revText').value.trim();
+  const rating = Number(starInput.dataset.rating);
+  if (!rating) { alert('Selecciona una calificación de estrellas.'); return; }
+
+  const list = loadReviews();
+  list.push({
+    name, text, rating,
+    date: new Date().toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' })
+  });
+  saveReviews(list);
+
+  this.reset();
+  starInput.dataset.rating = 0;
+  starInput.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  renderReviews();
+});
+
+renderReviews();
 </script>
 </body>
 </html>
